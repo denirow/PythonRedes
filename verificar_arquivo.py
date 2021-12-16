@@ -1,7 +1,10 @@
 import os.path
 import os
+import subprocess
 
-if os.path.isfile('C:\\HashiCorp\\Vagrant\\bin\\vagrant.exe'):
-    print('existe')
-else:
-    print('n exite')
+try: 
+    verifica_vagrant = subprocess.check_call('vagrant.exe --version', stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    print(verifica_vagrant)
+except:
+    print('nada instalado')
+
