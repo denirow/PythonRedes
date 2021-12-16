@@ -2,12 +2,13 @@ from os import system
 from time import sleep
 import os
 
-opcao = 0
+opcao = 8
 while opcao != 9:
     print ("######################################")
     print ("#  " +  '\033[33;40mScript para baixar boxes Vagrant\033[m' + "  #")
-    print ("#    " +     '\033[33;40mAutor: Prof. Denys Alexandre\033[m' +  "    #")
-    print ("#          " +          '\033[33;40mData: 15.12.2021\033[m' +         "          #")
+    print ("#    " +     '\033[33;40mAutor: Prof. Denys Alexandre\033[m' + "    #")
+    print ("#          " +          '\033[33;40mData: 15.12.2021\033[m' + "          #")
+    print ("# " +          '\033[31;40mv1.0\033[m' + "                               #")
     print ("######################################")
     print ("")
     print ("Escolha a opção que deseja:")
@@ -22,6 +23,7 @@ while opcao != 9:
     print ("(8) Limpar a tela")
     print ("(9) Sair do script.")
     print ("")
+    
     opcao =  int(input("O que você deseja fazer ? "))
     os.system('cls')
     
@@ -82,7 +84,6 @@ while opcao != 9:
         print ("")
         os.system('cls')
     elif opcao == 9:
-        print('Finalizando ...')
         print("Saindo o script. Vlw. Flw.")
         sleep(2)
     else:
