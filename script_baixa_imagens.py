@@ -5,12 +5,12 @@ import os
 opcao = 0
 while opcao != 9:
     print ("######################################")
-    print ("#  Script para baixar boxes Vagrant  #")
-    print ("#     Autor: Prof. Denys Alexandre   #")
-    print ("#          Data: 15.12.2021          #")
+    print ("#  " +  '\033[33;40mScript para baixar boxes Vagrant\033[m' + "  #")
+    print ("#    " +     '\033[33;40mAutor: Prof. Denys Alexandre\033[m' +  "    #")
+    print ("#          " +          '\033[33;40mData: 15.12.2021\033[m' +         "          #")
     print ("######################################")
     print ("")
-    print ("Escolha a opção que deseja")
+    print ("Escolha a opção que deseja:")
     print ("")
     print ("(1) Listar todas as boxes disponíveis no repositório online;")
     print ("(2) Listar todas as boxes disponíveis no repositório local;")
