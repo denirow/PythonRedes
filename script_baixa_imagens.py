@@ -14,7 +14,6 @@ while opcao != 9:
     print ("######################################")
     
     if os.path.isfile('C:\\HashiCorp\\Vagrant\\bin\\vagrant.exe'):
-        #int(os.system('vagrant.exe --version'))
         versao = subprocess.check_output("vagrant.exe --version", shell=True)
         versao = versao.decode("utf-8")
         print("Versão detectada: " + str(versao))
