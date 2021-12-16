@@ -2,8 +2,7 @@ from time import sleep
 import os
 import subprocess
 
-opcao = 8
-
+opcao = 0
 while opcao != 9:
     print ("######################################")
     print ("#  " +  '\033[33;40mScript para baixar boxes Vagrant\033[m' + "  #")
@@ -16,11 +15,12 @@ while opcao != 9:
         verifica_vagrant = subprocess.check_call('vagrant.exe --version', stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         versao = subprocess.check_output("vagrant.exe --version", shell=True)
         versao = versao.decode("utf-8")
-        print("Versão detectada: " + str(versao))
+        print("\033[31;40mVersão Vagrant detectada: \033[m" + str(versao))
     except:
         print('\033[31;40mInstalação do Vagrand não encontrada.\033[m')
+        print('\033[31;40mBaixe em: https://www.vagrantup.com/downloads\033[m')
         print('')
-    
+        
     print ("Escolha a opção que deseja:")
     print ("")
     print ("(1) Listar todas as boxes disponíveis no repositório online;")

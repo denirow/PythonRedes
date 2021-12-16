@@ -4,7 +4,7 @@
 block_cipher = None
 
 
-a = Analysis(['script_baixa_imagens.py'],
+a = Analysis(['vagrant\\script_baixa_imagens.py'],
              pathex=[],
              binaries=[],
              datas=[],
