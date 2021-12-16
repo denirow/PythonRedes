@@ -23,6 +23,7 @@ while opcao != 9:
     print ("(9) Sair do script.")
     print ("")
     opcao =  int(input("O que você deseja fazer ? "))
+    os.system('cls')
     
     if opcao == 1:
         print('\033[31;40mListando todas as boxes disponíveis no repositório online\033[m')
