@@ -1,4 +1,3 @@
-from os import system
 from time import sleep
 import os
 import subprocess
