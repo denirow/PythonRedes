@@ -1,8 +1,10 @@
 from os import system
 from time import sleep
 import os
+import subprocess
 
 opcao = 8
+
 while opcao != 9:
     print ("######################################")
     print ("#  " +  '\033[33;40mScript para baixar boxes Vagrant\033[m' + "  #")
@@ -10,6 +12,15 @@ while opcao != 9:
     print ("#          " +          '\033[33;40mData: 15.12.2021\033[m' + "          #")
     print ("# " +          '\033[31;40mv1.0\033[m' + "                               #")
     print ("######################################")
+    
+    if os.path.isfile('C:\\HashiCorp\\Vagrant\\bin\\vagrant.exe'):
+        #int(os.system('vagrant.exe --version'))
+        versao = subprocess.check_output("vagrant.exe --version", shell=True)
+        versao = versao.decode("utf-8")
+        print("Versão detectada: " + str(versao))
+    else:
+        print('\033[31;40mInstalação do Vagrand não encontrada.\033[m')
+    
     print ("")
     print ("Escolha a opção que deseja:")
     print ("")
