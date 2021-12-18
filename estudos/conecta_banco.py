@@ -7,7 +7,7 @@ if conexao.is_connected():
     banco='SGBD conectado com sucesso!'
     print(banco)
     cursor = conexao.cursor()
-    cursor.execute("select * from tb_user where user_name='denys'")
+    cursor.execute("select * from tb_user where user_name='alecia'")
 
 resultado = cursor.fetchall()
 print(resultado)
