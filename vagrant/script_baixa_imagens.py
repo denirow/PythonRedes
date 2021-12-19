@@ -2,6 +2,44 @@ from time import sleep
 import os
 import subprocess
 
+def lista_repo_remoto():
+    print('\033[31;40mListando todas as boxes disponíveis no repositório online\033[m')
+    print ("")
+    os.system('vagrant.exe cloud search denirow')
+    sleep(3)
+    print ("")
+    
+def lista_repo_local():
+    print('\033[31;40mListando todas as boxes disponíveis no repositório local\033[m')
+    print ("")
+    os.system('vagrant box list')
+    sleep(3)
+    print ("") 
+
+def baixa_debian11():
+    print('\033[31;40mBaixando a box do Debian 11\033[m')
+    print ("")
+    os.system('vagrant box add denirow/debian11')
+    sleep(1)
+
+def baixa_xp():
+    print('\033[31;40mBaixando a box do Windows XP SP3\033[m')
+    print ("")
+    os.system('vagrant box add denirow/winxp')
+    sleep(1)
+
+def baixa_win7():
+    print('\033[31;40mBaixando a box do Windows 7 PRO\033[m')
+    print ("")
+    os.system('vagrant box add denirow/win7pro')
+    sleep(1)
+
+def baixa_win2k8():
+    print('\033[31;40mBaixando a box do Windows 2008 Standard\033[m')
+    print ("")
+    os.system('vagrant box add denirow/win2k8')
+    sleep(1)
+
 opcao = 0
 while opcao != 9:
     print ("######################################")
@@ -38,57 +76,31 @@ while opcao != 9:
     os.system('cls')
     
     if opcao == 1:
-        print('\033[31;40mListando todas as boxes disponíveis no repositório online\033[m')
-        print ("")
-        os.system('vagrant.exe cloud search denirow')
-        sleep(3)
-        print ("")
+        lista_repo_remoto()
+        
     elif opcao == 2:
-        print('\033[31;40mListando todas as boxes disponíveis no repositório local\033[m')
-        print ("")
-        os.system('vagrant box list')
-        sleep(3)
-        print ("") 
+        lista_repo_local()
+        
     elif opcao == 3:
-        print('\033[31;40mBaixando a box do Debian 11\033[m')
-        print ("")
-        os.system('vagrant box add denirow/debian11')
-        sleep(1)
+        baixa_debian11()
+        
     elif opcao == 4:
-        print('\033[31;40mBaixando a box do Windows XP SP3\033[m')
-        print ("")
-        os.system('vagrant box add denirow/winxp')
-        sleep(1)
+        baixa_xp()
+        
     elif opcao == 5:
-        print('\033[31;40mBaixando a box do Windows 7 PRO\033[m')
-        print ("")
-        os.system('vagrant box add denirow/win7pro')
-        sleep(1)
+        baixa_win7()
+        
     elif opcao == 6:
-        print('\033[31;40mBaixando a box do Windows 2008 Standard\033[m')
-        print ("")
-        os.system('vagrant box add denirow/win2k8')
-        sleep(1)
+        baixa_win2k8()
+        
     elif opcao == 7:
         print('\033[31;40mBaixando todas as boxes do repositório online (Isso vai demorar ... pega o café e espera)\033[m')
         print ("")
-        print('\033[31;40mBaixando a box do Debian 11\033[m')
-        os.system('vagrant box add denirow/debian11')
-        print("")
-        print("")
-        print('\033[31;40mBaixando a box do Windows XP SP3\033[m')
-        os.system('vagrant box add denirow/winxp')
-        print("")
-        print("")
-        print('\033[31;40mBaixando a box do Windows 7 PRO\033[m')
-        os.system('vagrant box add denirow/win7pro')
-        print("")
-        print("")
-        print('\033[31;40mBaixando a box do Windows 2008 Standard\033[m')
-        os.system('vagrant box add denirow/win2k8')
-        print("")
-        print("")
-        sleep(1)
+        baixa_debian11()
+        baixa_xp()
+        baixa_win7()
+        baixa_win2k8()
+
     elif opcao == 8:
         print('Limpando a tela')
         print ("")
