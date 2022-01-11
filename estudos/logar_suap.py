@@ -29,3 +29,6 @@ time.sleep(1)
 
 # Entrar no site
 pyautogui.click(x=-657, y=615)
+
+time.sleep(4)
+pyautogui.click(x=-1511, y=385)
