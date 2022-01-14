@@ -1,5 +1,6 @@
 import pyautogui
 import time
+import os
 
 pyautogui.keyDown('win')
 pyautogui.press('r')
@@ -29,6 +30,9 @@ time.sleep(1)
 
 # Entrar no site
 pyautogui.click(x=-657, y=615)
-
-time.sleep(4)
+time.sleep(2)
 pyautogui.click(x=-1511, y=385)
+time.sleep(4)
+
+# clicar nas pendências de 2021
+pyautogui.click('pendencias.PNG')
