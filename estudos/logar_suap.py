@@ -35,4 +35,4 @@ pyautogui.click(x=-1511, y=385)
 time.sleep(4)
 
 # clicar nas pendências de 2021
-pyautogui.click('pendencias.PNG')
+pyautogui.click(r'D:\PythonRedes\estudos\fechar.PNG')
