@@ -1,15 +1,7 @@
 version: "3.9"
 services:
-  debian:
-    image: debian:latest
-    container_name: debian-aulas
-      
-  ubuntu:
-    image: ubuntu:latest
-    container_name: ubuntu-aulas
-
   nginx:
-    image: nginx:latest
-    container_name: nginx
+    image: denirow/prog-redes:latest
+    container_name: prog-redes
     ports:
-      - 3000:80
+      - 8081:80
