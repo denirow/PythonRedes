@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu-nginx
+  labels:
+    name: ubuntu-nginx
+spec:
+  containers:
+  - name: ubuntu-nginx
+    image: denirow/ubuntu-aulas
+    ports:
+      - containerPort: 80

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gitlab-ce
+  labels:
+    name: gitlab-ce
+spec:
+  containers:
+  - name: gitlab-ce
+    image: gitlab/gitlab-ce
+    ports:
+      - containerPort: 80

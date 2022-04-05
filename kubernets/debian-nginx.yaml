@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: debian-nginx
+  labels:
+    name: debian-nginx
+spec:
+  containers:
+  - name: debian-nginx
+    image: denirow/debian-aulas
+    ports:
+      - containerPort: 80
