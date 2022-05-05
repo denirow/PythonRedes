@@ -1,4 +1,4 @@
-import os, shutil
+import os
 from time import sleep
 
 path="C:\denys"
