@@ -1,8 +1,19 @@
-import os
+import os, shutil
+from time import sleep
 
-path = "C:\denys"
+path="C:\denys"
 
-if os.listdir(path) == []:
-    print("Não existem arquivos no diretorio")
+if os.path.isdir (path):
+
+    if os.listdir(path) == []:
+        print("NÃO EXISTEM arquivos no diretório" +" "+ path +".")
+    else:
+        print("EXISTEM arquivos no diretório" +" "+ path +".")
 else:
-    print("Contém arquivos no diretório")
+    print("O diretório" +" "+ path +" não existe.")
+    print("--")
+    print("Criando o diretório.")
+    print("--")
+    sleep(2)
+    os.mkdir(path)
+    print("Diretório criado.")
