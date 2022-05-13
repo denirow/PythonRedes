@@ -3,20 +3,16 @@ services:
   gitlab-ce:
     image: gitlab/gitlab-ce
     container_name: gitlab-ce
-    command: bash -c "apt-get update && apt-get safe-upgrade -y"
+    command: bash -c "apt-get update && apt-get upgrade -y"
     ports:
       - 8080:80
   git-runner:
     image: gitlab/gitlab-runner
     container_name: gitlab-runner
-    command: bash -c "apt-get update && apt-get safe-upgrade -y"
-    links:
-      - "gitlab-ce"
-    depends_on:
-      - "gitlab-ce"
+    command: bash -c "apt-get update && apt-get upgrade -y"
   srv_prog_redes:
     image: denirow/prog-redes:latest
     container_name: prog-redes
-    command: bash -c "apt-get update && apt-get safe-upgrade -y"
+    command: bash -c "apt-get update && apt-get upgrade -y"
     ports:
       - 8081:80
