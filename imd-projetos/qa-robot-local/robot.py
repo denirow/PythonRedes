@@ -31,7 +31,7 @@ if os.path.isdir (path):
         print("Excluindo arquivos .png gerados pelo Robot.")
         sleep(2)
         os.system("rm -rfv" +" "+ path +"/*")
-        print("Arquivos excluidos.")
+        print("Arquivos locais excluidos.")
         func.email_com_erro()
 else:
     print("O diretorio" +" "+ path +" nao existe.")
