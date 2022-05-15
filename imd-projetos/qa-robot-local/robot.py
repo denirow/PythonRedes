@@ -24,7 +24,7 @@ if os.path.isdir (path):
     else:
         print("EXISTEM arquivos no diretorio" +" "+ path +".")
         print("--")
-        print("Compactando para enviar por email")
+        print("Compactando para enviar por email.")
         os.system("tar vzcf /root/robot/log_robot_" +""+ date +""+".tar.gz "+ path +"")
         print("--")
         print("Excluindo arquivos.")
