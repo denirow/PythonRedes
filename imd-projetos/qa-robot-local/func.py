@@ -16,6 +16,7 @@ now = datetime.now()
 date = now.strftime("%d_%m_%Y")
 time = now.strftime("%H_%M_%S")
 
+#Enviar email quando algum arquivo de erro do Robot é gerado.
 def email_com_erro ():
     server = smtplib.SMTP(host,port)
     server.ehlo()
@@ -39,6 +40,7 @@ def email_com_erro ():
     server.quit()
     print('Email COM erro enviado.')
 
+#Enviar email quando nenhum arquivo de erro do Robot é gerado.
 def email_sem_erro ():
     server = smtplib.SMTP(host,port)
     server.ehlo()
