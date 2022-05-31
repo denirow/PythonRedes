@@ -9,6 +9,7 @@ services:
   git-runner:
     image: gitlab/gitlab-runner
     container_name: gitlab-runner
+    working_dir: /etc/gitlab-runner
   srv_prog_redes:
     image: denirow/prog-redes:latest
     container_name: prog-redes
