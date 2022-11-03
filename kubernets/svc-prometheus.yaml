@@ -6,4 +6,5 @@ spec:
   selector:
     name: prometheus
   ports:
-  - port: 8089
+  - port: 30123
+    targetPort: 80

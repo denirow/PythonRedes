@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: prometheus
+  labels:
+    name: prometheus
+spec:
+  containers:
+  - name: prometheus
+    image: bitnami/prometheus
+    ports:
+      - containerPort: 80
