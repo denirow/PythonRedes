@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
   - name: debian-nginx
-    image: denirow/debian-aulas
+    image: nginx:latest
     ports:
       - containerPort: 80
