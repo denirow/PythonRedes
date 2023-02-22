@@ -34,17 +34,6 @@ if quantidade == 0:
     data()
     quit()
 
-# Verificando se só existe um email que obedeça os filtros
-quantidade = int(quantidade)
-if quantidade == 1:  
-    quantidade = str(quantidade)
-    print("Email encontrado: " + quantidade)
-    print("Dados do email encontrado.")
-    for msg in caixa.fetch(AND(from_="denirow@gmail.com" , subject="update_bca")):
-        print(msg.uid, msg.date, msg.from_, msg.subject)    
-        print("")
-
-
 # Identificando se existe mais de um email que obedeça o filtro.
 # Se houver, todos os emails serão excluídos
 quantidade = int(quantidade)
@@ -57,7 +46,16 @@ if quantidade > 1:
     print("#################################################################")
     limpa_email()
     data()
-    quit()  
+    quit()
+
+# Verificando se só existe um email que obedeça os filtros
+if quantidade == 1:  
+    quantidade = str(quantidade)
+    print("Email encontrado: " + quantidade)
+    print("Dados do email encontrado.")
+    for msg in caixa.fetch(AND(from_="denirow@gmail.com" , subject="update_bca")):
+        print(msg.uid, msg.date_str, msg.from_, msg.subject)    
+        print("")  
 
 #Localizando o email com o anexo das tabelas e baixando o arquivo.
 # Caso o email não contenha anexo ou o anexo seja inválido, ele será excluído.
@@ -74,7 +72,7 @@ for att in lista_anexos:
                     data()
                     quit()                  
             else:
-                print("Anexo válido não encontado. Finalizando script ...")
+                print("Anexo válido não encontado. Finalizando script.")
                 limpa_email()
                 data()
                 quit()
