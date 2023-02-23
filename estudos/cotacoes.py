@@ -5,9 +5,9 @@ import json
 cotacoes = requests.get('https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,BTC-BRL')
 cotacoes = cotacoes.json()
 dolar = cotacoes['USDBRL']['bid']
-print(dolar)
+print("Dolar: " + dolar)
 euro = cotacoes['EURBRL']['bid']
-print(euro)
+print("Euro: " + euro)
 
 testa_site = requests.get('http://www.uol.com.br')
 print(testa_site)
