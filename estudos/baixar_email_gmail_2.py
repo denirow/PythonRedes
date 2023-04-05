@@ -97,6 +97,3 @@ for msg in caixa.fetch(AND(from_="denirow@gmail.com" , subject="update_bca")):
 print("Deletando EMAIL.")
 caixa.delete(uids)
 data()
-
-
-
