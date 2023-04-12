@@ -1,10 +1,20 @@
 from imap_tools import MailBox, AND
 from datetime import datetime
+from time import sleep
+import os
 
 # Login do Gmail
 login = "denirowtestes@gmail.com"
 # Senha de APP do Gmail
 senha = "qtesmrspmskfzgfo"
+# Variaveis do email de origem
+origem = "*"
+subject = "update_bca"
+print('')
+print("INICIANDO SCRIPT DE ATUALIZAÇÃO DO BCA VIA EMAIL")
+print('')
+print("Buscando por emails novos ...")
+print('')
 caixa = MailBox("imap.gmail.com").login(login, senha)
 
 # Funcao Data
@@ -16,13 +26,36 @@ def data():
 # Funcao para limpar a caixa de entrada
 def limpa_email():
     uids = []
-    for msg in caixa.fetch(AND(from_="denirow@gmail.com" , subject="update_bca")):
+    for msg in caixa.fetch(AND(from_= origem, subject= subject)):
         uids.append(msg.uid)
     print("Deletando EMAIL.")
     caixa.delete(uids)
 
+# Funcao Iniciando processo de descompactação do arquivo e execução da atualização do BCA
+def extrair_tabelas():
+    print("")
+    print('INICIADO: PROCESSO DE EXTRAÇÃO DAS TABELAS')
+    sleep(2)
+    print("")
+    os.system('unzip tabelas.zip -d data/BCA/')
+    print("")
+    os.system('rm tabelas.zip')
+    print('FINALIZADO: PROCESSO DE EXTRAÇÃO DAS TABELAS')
+    sleep(1)
+
+# Funcao para iniciar o processo de atualização do BCA
+def update_bca():
+    print("")
+    print('INICIADO: PROCESSO DE ATUALIZAÇÃO DO BCA')
+    print('')
+    os.system('python3 scripts/teste.py')
+    print("")
+    print('FINALIZADO: PROCESSO DE ATUALIZAÇÃO DO BCA')
+    print("")
+    sleep(1)
+
 #Listando a quantidade de emails que atendem o filtro.
-lista_email = caixa.fetch(AND(from_="denirow@gmail.com", subject="update_bca"))
+lista_email = caixa.fetch(AND(from_= origem, subject= subject))
 quantidade = len(list(lista_email))
 
 # Vericando se a caixa de entrada esta zerada
@@ -53,13 +86,13 @@ if quantidade == 1:
     quantidade = str(quantidade)
     print("Email encontrado: " + quantidade)
     print("Dados do email encontrado.")
-    for msg in caixa.fetch(AND(from_="denirow@gmail.com" , subject="update_bca")):
+    for msg in caixa.fetch(AND(from_= origem, subject= subject)):
         print(msg.uid, msg.date_str, msg.from_, msg.subject)    
         print("")  
 
 #Localizando o email com o anexo das tabelas e baixando o arquivo.
 # Caso o email não contenha anexo ou o anexo seja inválido, ele será excluído.
-lista_anexos = caixa.fetch(AND(from_="denirow@gmail.com" , subject="update_bca"))
+lista_anexos = caixa.fetch(AND(from_= origem, subject= subject))
 for att in lista_anexos:
     if len(att.attachments) > 0:
         for anexo in att.attachments:
@@ -68,6 +101,8 @@ for att in lista_anexos:
                 with open("tabelas.zip", "wb") as arquivo_tabelas:
                     arquivo_tabelas.write(info_anexo)
                     print("Download do anexo TABELAS.ZIP feito com sucesso.")
+                    extrair_tabelas()
+                    update_bca()
                     limpa_email()
                     data()
                     quit()                  
@@ -81,7 +116,7 @@ for att in lista_anexos:
     if len(att.attachments) == 0:
         print("O email não contém nenhum arquivo anexado.")
     uids = []
-    for msg in caixa.fetch(AND(from_="denirow@gmail.com" , subject="update_bca")):
+    for msg in caixa.fetch(AND(from_= origem, subject= subject)):
         uids.append(msg.uid)
     print("Deletando EMAIL e finalizando o script.")
     now = datetime.now()
@@ -92,11 +127,8 @@ for att in lista_anexos:
 
 #Limpando Caixa de Email
 uids = []
-for msg in caixa.fetch(AND(from_="denirow@gmail.com" , subject="update_bca")):
+for msg in caixa.fetch(AND(from_= origem, subject= subject)):
     uids.append(msg.uid)
 print("Deletando EMAIL.")
 caixa.delete(uids)
 data()
-
-
-
