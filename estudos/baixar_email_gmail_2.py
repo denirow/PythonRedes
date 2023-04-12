@@ -8,7 +8,7 @@ login = "denirowtestes@gmail.com"
 # Senha de APP do Gmail
 senha = "qtesmrspmskfzgfo"
 # Variaveis do email de origem
-origem = "denirow@gmail.com"
+origem = "*"
 subject = "update_bca"
 print('')
 print("INICIANDO SCRIPT DE ATUALIZAÇÃO DO BCA VIA EMAIL")
