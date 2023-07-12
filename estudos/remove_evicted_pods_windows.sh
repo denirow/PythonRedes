@@ -1,29 +1,27 @@
 #!/bin/bash
 
-# Obtém a lista de namespaces
-namespaces=$(kubectl.exe get namespaces -o jsonpath='{.items[*].metadata.name}')
+# Obtém a lista de todos os namespaces
+echo "[1/3] Obtendo lista dos namespaces existentes."
+echo ""
+sleep 2
+echo "[2/3] Lista obtida. Iniciando varredura."
+echo ""
+namespaces=$(kubectl.exe get namespaces -o=jsonpath='{.items[*].metadata.name}')
 
 # Loop pelos namespaces
+echo "[3/3] Varrendo namespaces a procura de pods com o status Evicted"
 for namespace in $namespaces; do
-  echo "Procurando por pods evicted no namespace: $namespace"
-  
+  echo "Namespace: $namespace"
+
   # Obtém a lista de pods evicted no namespace atual
-  evicted_pods=$(kubectl.exe get pods -n $namespace --field-selector=status.phase=Failed -o jsonpath='{range .items[*]}{.metadata.name} {.status.phase}{"\n"}{end}' | grep Evicted)
-  
-  # Se houver pods evicted, exclua-os
-  if [ ! -z "$evicted_pods" ]; then
-    echo "Os seguintes pods foram encontrados com status evicted no namespace $namespace:"
-    echo "$evicted_pods"
-    
-    # Exclua cada pod encontrado
-    while read -r pod _; do
-      kubectl.exe delete pod $pod -n $namespace
-    done <<< "$evicted_pods"
-    
-    echo "Os pods evicted foram excluídos com sucesso."
-  else
-    echo "Nenhum pod com status evicted foi encontrado no namespace $namespace."
-  fi
-  
+  evicted_pods=$(kubectl.exe get pods -n $namespace --field-selector=status.phase=Failed -o=jsonpath='{range .items[?(@.status.reason=="Evicted")]}{.metadata.name}{"\n"}{end}')
+
+  # Loop pelos pods evicted
+  for pod in $evicted_pods; do
+    echo "Deleting pod: $pod"
+    kubectl.exe delete pod $pod -n $namespace
+  done
+
   echo ""
 done
+echo "Script concluído."
