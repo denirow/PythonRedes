@@ -1,12 +1,15 @@
 #!/bin/bash
 
 # Obtém a lista de todos os namespaces
-echo "Obtendo lista dos namespaces existentes"
+echo "[1/3] Obtendo lista dos namespaces existentes."
+echo ""
+sleep 2
+echo "[2/3] Lista obtida. Iniciando varredura."
 echo ""
 namespaces=$(kubectl get namespaces -o=jsonpath='{.items[*].metadata.name}')
 
 # Loop pelos namespaces
-echo "Varrendo namespaces a procura de pods com o status Evicted"
+echo "[3/3] Varrendo namespaces a procura de pods com o status Evicted"
 for namespace in $namespaces; do
   echo "Namespace: $namespace"
 
@@ -21,3 +24,4 @@ for namespace in $namespaces; do
 
   echo ""
 done
+echo "Script concluído."
