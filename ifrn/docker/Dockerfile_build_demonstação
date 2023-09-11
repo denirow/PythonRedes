@@ -1,0 +1,11 @@
+# Use a imagem oficial do Nginx como base
+FROM nginx:latest
+
+# Copie o conteúdo do diretório local para o diretório padrão do Nginx
+COPY /home/meu_site /usr/share/nginx/html
+
+# Exponha a porta 80, que é a porta padrão do Nginx
+EXPOSE 80
+
+# Comando para iniciar o servidor Nginx em segundo plano
+CMD ["nginx", "-g", "daemon off;"]
