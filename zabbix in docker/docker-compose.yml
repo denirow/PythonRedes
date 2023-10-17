@@ -1,0 +1,49 @@
+version: '3'
+services:
+  zabbix-server:
+    image: zabbix/zabbix-server-pgsql:latest
+    container_name: zabbix-server
+    ports:
+      - "10051:10051"
+    mem_limit: "1G"
+    environment:
+      - DB_SERVER_HOST=zabbix-db
+      - POSTGRES_USER=zabbix
+      - POSTGRES_PASSWORD=zabbix
+      - POSTGRES_DB=zabbix
+    networks:
+      - zabbix-net
+    depends_on:
+      - zabbix-db
+
+  zabbix-web:
+    image: zabbix/zabbix-web-nginx-pgsql:latest
+    container_name: zabbix-front
+    ports:
+      - "8888:8080"
+    mem_limit: "1G"
+    environment:
+      - DB_SERVER_HOST=zabbix-db
+      - POSTGRES_USER=zabbix
+      - POSTGRES_PASSWORD=zabbix
+      - POSTGRES_DB=zabbix
+      - ZBX_SERVER_HOST=zabbix-server
+    networks:
+      - zabbix-net
+    depends_on:
+      - zabbix-server
+
+  zabbix-db:
+    image: postgres:13-bullseye
+    container_name: zabbix-pgsql
+    mem_limit: "1G"
+    environment:
+      - POSTGRES_USER=zabbix
+      - POSTGRES_PASSWORD=zabbix
+      - POSTGRES_DB=zabbix
+    networks:
+      - zabbix-net
+    volumes:
+      - /var/lib/postgresql/data:/var/lib/postgresql/data
+networks:
+  zabbix-net:
