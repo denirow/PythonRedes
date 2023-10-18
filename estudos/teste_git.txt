@@ -1,0 +1,1 @@
+testando o git clone na subida da imagem docker !
