@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: remove_evicted_pods_linux
+  namespace: devsecops
+spec:
+  containers:
+  - name: remove_evicted_pods_linux
+    image: registry.smartsuite.imd.ufrn.br/devops/scripts-gerais:latest
+    command: ["/bin/sh"]
+    args: ["-c", "remove_evicted_pods_linux.sh"]

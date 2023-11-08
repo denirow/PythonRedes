@@ -12,7 +12,7 @@ def main():
     server_socket.bind((host, porta))
 
     # Começa a ouvir por conexões
-    server_socket.listen(1)
+    server_socket.listen(5)
     print(f"Servidor ouvindo na porta {porta}...")
     print("SEM THREAD")
 

@@ -22,7 +22,6 @@ def main():
 
     # Cria um socket TCP
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
     # Vincula o socket ao endereço e à porta
     server_socket.bind((host, porta))
 
