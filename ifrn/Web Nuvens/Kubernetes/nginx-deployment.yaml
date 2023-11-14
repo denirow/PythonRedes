@@ -1,23 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: nginx-deployment-develop
+  namespace: develop
   labels:
-    app: front-end
+    app: front-end-develop
 spec:
   selector:
     matchLabels:
-      app: front-end
-  replicas: 1
-  strategy:
-    type: RollingUpdate
+      app: front-end-develop
+  replicas: 2
   template:
     metadata:
       labels:
-        app: front-end
+        app: front-end-develop
     spec:
       containers:
        - name: nginx
-         image: nginx:latest
+         image: denirow/prog-redes
          ports:
          - containerPort: 80
