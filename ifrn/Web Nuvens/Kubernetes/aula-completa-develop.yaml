@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: develop
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-develop
+  namespace: develop
+  labels:
+    app: front-end-develop
+spec:
+  selector:
+    matchLabels:
+      app: front-end-develop
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: front-end-develop
+    spec:
+      containers:
+       - name: nginx
+         image: denirow/prog-redes
+         ports:
+         - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-end-clusterip-develop
+  namespace: develop
+spec:
+  type: ClusterIP
+  selector:
+    app: front-end-develop
+  ports:
+  - port: 80
+    targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-primario-develop
+  namespace: develop
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: develop.10.51.6.143.nip.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: front-end-clusterip-develop
+            port:
+              number: 80

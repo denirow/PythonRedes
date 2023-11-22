@@ -13,6 +13,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: front-end-clusterip-homolog
+            name: back-end-clusterip-homolog
             port:
               number: 80
