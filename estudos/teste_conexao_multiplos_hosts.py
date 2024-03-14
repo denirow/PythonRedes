@@ -48,9 +48,9 @@ nome_svcs = ['Protheus', 'Jira', 'BCA']
 
 # Insira o seu webhook URL do Slack
 # Canal devops-pvt
-# webhook_url = 'https://hooks.slack.com/services/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'
+# webhook_url = 'https://hooks.slack.com/services/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'
 # Pessoal Denys Alexandre 
-webhook_url = 'https://hooks.slack.com/services/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' 
+webhook_url = 'https://hooks.slack.com/services/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' 
 
 
 # Verifica se os arrays de hosts e portas têm o mesmo comprimento

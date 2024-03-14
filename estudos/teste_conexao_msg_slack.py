@@ -48,7 +48,7 @@ else:
     print(mensagem)
 
 # Insira o seu webhook URL do Slack
-https://hooks.slack.com/services/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
+webhook_url = 'https://hooks.slack.com/services/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'
 
 # Envia a mensagem para o canal do Slack
 enviar_mensagem_slack(webhook_url, mensagem)
