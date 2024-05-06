@@ -1,13 +1,20 @@
-FROM python:3.9
+# Use a imagem oficial do Node.js como base
+FROM node:14
 
-WORKDIR /app
+# Crie e defina o diretório de trabalho dentro do contêiner
+WORKDIR /usr/src/app
 
-COPY requisitos.txt .
+# Copie o package.json e package-lock.json para o diretório de trabalho
+COPY package*.json ./
 
-RUN pip install --no-cache-dir -r requirements.txt
+# Instale as dependências do projeto
+RUN npm install express multer path express-basic-auth
 
+# Copie todos os arquivos do diretório atual para o diretório de trabalho no contêiner
 COPY . .
 
-EXPOSE 5000
+# Exponha a porta 3000 do contêiner
+EXPOSE 3000
 
-CMD ["python", "app.py"]
+# Comando para iniciar o servidor
+CMD ["node", "app.js"]
