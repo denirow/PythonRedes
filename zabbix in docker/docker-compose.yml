@@ -20,7 +20,7 @@ services:
     image: zabbix/zabbix-web-nginx-pgsql:latest
     container_name: zabbix-front
     ports:
-      - "8888:8080"
+      - "8080:8080"
     mem_limit: "1G"
     environment:
       - DB_SERVER_HOST=zabbix-db
