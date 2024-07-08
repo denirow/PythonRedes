@@ -6,12 +6,11 @@ services:
     working_dir: /etc/gitlab
     ports:
       - 8080:80
-  git-runner:
+  git-runner-1:
     image: gitlab/gitlab-runner
-    container_name: gitlab-runner
+    container_name: gitlab-runner-1
     working_dir: /etc/gitlab-runner
-  srv_prog_redes:
-    image: denirow/prog-redes:latest
-    container_name: prog-redes
-    ports:
-      - 8081:80
+  git-runner-2:
+    image: gitlab/gitlab-runner
+    container_name: gitlab-runner-2
+    working_dir: /etc/gitlab-runner
