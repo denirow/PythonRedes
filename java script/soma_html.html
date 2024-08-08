@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Somar e Diminuir</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #747474;
+            margin: 0;
+        }
+        .calculadora_verde {
+            padding: 15px;
+            background-color: #138123;
+            border: 6px solid #000000;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .calculadora_roxa {
+            padding: 10px;
+            background-color: #4c34d6;
+            border: 6px solid #000000;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            margin: 5px;
+            padding: 5px;
+            width: 100px;
+        }
+        button {
+            margin: 5px;
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>CALCULADORAS</h2>
+    <div class="calculadora_verde">
+        <h2>Calculadora de Somar</h2>
+        <input type="number" id="numero1" placeholder="Número 1">
+        <input type="number" id="numero2" placeholder="Número 2">
+        <input type="number" id="numero3" placeholder="Número 3"></input>
+        <button onclick="somar()">Somar</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function somar() {
+            var numero1 = parseFloat(document.getElementById('numero1').value);
+            var numero2 = parseFloat(document.getElementById('numero2').value);
+            var numero3 = parseFloat(document.getElementById('numero3').value);
+            var soma = numero1 + numero2 + numero3;
+            document.getElementById('resultado').textContent = 'Resultado: ' + soma;
+        }
+    </script>
+<p></p>
+    <div class="calculadora_roxa">
+        <h2>Calculadora de Diminuir</h2>
+        <input type="number" id="numero1_diminuir" placeholder="Número 1">
+        <input type="number" id="numero2_diminuir" placeholder="Número 2">
+        <input type="number" id="numero3_diminuir" placeholder="Número 3"></input>
+        <button onclick="diminuir()">Diminuir</button>
+        <p id="resultado_diminuir"></p>
+    </div>
+
+    <script>
+        function diminuir() {
+            var numero1_diminuir = parseFloat(document.getElementById('numero1_diminuir').value);
+            var numero2_diminuir = parseFloat(document.getElementById('numero2_diminuir').value);
+            var numero3_diminuir = parseFloat(document.getElementById('numero3_diminuir').value);
+            var diminuir = numero1_diminuir - numero2_diminuir - numero3_diminuir;
+            document.getElementById('resultado_diminuir').textContent = 'Resultado: ' + diminuir;
+        }
+    </script>
+</body>
+</html>
