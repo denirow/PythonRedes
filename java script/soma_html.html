@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Somar e Diminuir</title>
     <style>
+        h1 {
+            color: #ffffff;
+            text-shadow: 3px 3px #ee1616;
+         }
+
+        h2 {
+            color: #058e35;
+            text-shadow: 2px 1px #080808;
+        }
         body {
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 75vh;
             background-color: #747474;
             margin: 0;
         }
@@ -21,13 +30,15 @@
             border: 6px solid #000000;
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         .calculadora_roxa {
             padding: 10px;
-            background-color: #4c34d6;
+            background-color: #e41c1c;
             border: 6px solid #000000;
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         input {
             margin: 5px;
@@ -42,7 +53,7 @@
     </style>
 </head>
 <body>
-    <h2>CALCULADORAS</h2>
+    <h1>CALCULADORAS</h1>
     <div class="calculadora_verde">
         <h2>Calculadora de Somar</h2>
         <input type="number" id="numero1" placeholder="Número 1">

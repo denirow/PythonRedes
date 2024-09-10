@@ -1,0 +1,26 @@
+// DER - Sistema de Gerenciamento de Biblioteca
+digraph {
+	"Usuário" [label="Usuário
+---------------
+Código (PK)
+Nome
+E-mail
+Telefone"]
+	Livro [label="Livro
+---------------
+Código (PK)
+Título
+Autor
+Editora
+Ano de Publicação
+Qtd. Exemplares"]
+	"Empréstimo" [label="Empréstimo
+---------------
+Código (PK)
+Data Início
+Data Devolução Prev.
+Data Devolução Efet.
+Multa"]
+	"Usuário" -> "Empréstimo" [label="1:N Realiza"]
+	"Empréstimo" -> Livro [label="1:N Contém"]
+}
